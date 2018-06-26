@@ -1,0 +1,290 @@
+@import "_variables.scss";
+@import "~normalize.css";
+
+body {
+  font-family: Arial;
+  font-size: 13px;
+  min-width: 320px;
+}
+
+p {
+  margin: 0;
+}
+
+.article {
+  padding: 7px 2px;
+}
+
+.title-h2 {
+  padding: 0 0 3px 0;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 300;
+  border-bottom: 2px solid $black;
+}
+
+.container-title-h3 {
+  padding: 24px 0 7px;
+
+  &::after {
+    content: '';
+    display: block;
+    height: 0;
+    width: 100%;
+    border-bottom: 1px dotted $black;
+    margin-top: -7px;
+  }
+}
+
+.title-h3 {
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  padding: 0 8px 0 0;
+  font-size: 15px;
+  font-weight: 300;
+  background-color: $white;
+}
+
+.input {
+  min-width: 220px;
+  max-width: 100%;
+  height: 22px;
+  margin: 24px 0 0 18px;
+  font-size: 12px;
+  padding-left: 3px;
+  line-height: 1.7em;
+  border: 1px solid $control;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.items {
+  margin: 0;
+  padding: 16px 0 0 0;
+  list-style: none;
+}
+
+.text {
+  white-space: nowrap;
+}
+
+.item {
+  position: relative;
+  padding-left: 18px;
+  padding-bottom: 8px;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 230px;
+    height: 100%;
+    background: linear-gradient(to left, rgba($white, 1) 50%, rgba($white, .0) 100%);
+  }
+
+  &-content {
+    width: auto;
+    display: inline-block;
+    white-space: nowrap;
+  }
+}
+
+.control {
+
+  &-cross,
+  &-plus {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 12px;
+    height: 12px;
+    cursor: pointer;
+  }
+
+  &-content {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 0;
+    display: block;
+    width: 12px;
+    height: 2px;
+    background-color: $control;
+  }
+
+  &-cross::before {
+    @extend .control-content;
+    transform: rotate(45deg);
+  }
+
+  &-cross::after {
+    @extend .control-content;
+    transform: rotate(-45deg);
+  }
+
+  &-plus::before {
+    @extend .control-content;
+    transform: rotate(90deg);
+  }
+
+  &-plus::after {
+    @extend .control-content;
+    transform: rotate(0deg);
+  }
+}
+
+.section {
+  padding-bottom: 39px;
+}
+
+.link {
+  font-size: 12px;
+  color: $link-color;
+  padding-left: 18px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.warning {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 15px;
+  color: $control;
+  font-size: 12px;
+  cursor: pointer;
+  z-index: 2;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: -19px;
+    top: 0;
+    display: block;
+    width: 0;
+    height: 0;
+    border-bottom: 13px solid $control;
+    border-top: 0 solid transparent;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-radius: 5%;
+  }
+
+  &::after {
+    content: '!';
+    position: absolute;
+    top: 2px;
+    left: -12px;
+    display: block;
+    font-size: 10px;
+    color: $white;
+  }
+}
+
+.checked-hobby {
+  position: relative;
+  display: inline-block;
+  padding-left: 16px;
+  font-size: 12px;
+  color: $checked;
+  white-space: nowrap;
+  z-index: 2;
+
+  &-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: $checked;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 5px;
+      left: 3px;
+      display: block;
+      width: 8px;
+      height: 2px;
+      background-color: $white;
+      border-radius: 2px;
+      transform: rotate(-58deg);
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      left: 2px;
+      width: 5px;
+      height: 2px;
+      background-color: $white;
+      border-radius: 2px;
+      transform: rotate(57deg);
+    }
+  }
+}
+
+.item:hover .control-cross,
+.item:hover .control-plus,
+.item:hover .warning {
+  display: block;
+}
+
+.hideControl {
+  pointer-events: none;
+  &:hover {
+    .warning, .control-plus {
+      display: none;
+    }
+  }
+  .text {
+    display: inline-block;
+    width: auto;
+    max-width: calc(100% - 190px);
+    vertical-align: middle;
+  }
+}
+
+.form {
+  display: none;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  background-color: rgba($black, .3);
+
+  &-content {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    z-index: 6;
+    background-color: $white;
+  }
+}
+
+.showForm {
+  display: flex;
+}

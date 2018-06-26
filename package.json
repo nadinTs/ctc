@@ -1,0 +1,33 @@
+{
+  "name": "ctc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "source/scripts/app.js",
+  "scripts": {
+    "build": "webpack --mode=development",
+    "watch": "webpack --watch --mode=development",
+    "start": "webpack-dev-server --useLocalIp",
+    "production": "webpack --mode=production"
+  },
+  "keywords": [],
+  "author": "Nadya",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "6.26.3",
+    "babel-loader": "7.1.4",
+    "babel-preset-env": "1.7.0",
+    "clean-webpack-plugin": "0.1.19",
+    "css-loader": "0.28.11",
+    "extract-text-webpack-plugin": "4.0.0-beta.0",
+    "img-loader": "3.0.0",
+    "node-sass": "4.9.0",
+    "normalize.css": "8.0.0",
+    "postcss-loader": "2.1.5",
+    "sass-loader": "7.0.3",
+    "style-loader": "0.21.0",
+    "uglifyjs-webpack-plugin": "1.2.6",
+    "webpack": "4.12.1",
+    "webpack-cli": "3.0.8",
+    "webpack-dev-server": "3.1.4"
+  }
+}
