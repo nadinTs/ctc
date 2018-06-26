@@ -41,14 +41,16 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env']
+            presets: ['es2015']
           }
         },
         use: ExtractTextPlugin.extract({
           use: [
             {
               loader: 'css-loader',
-              options: {sourceMap: true}
+              options: {
+                minimize: true
+              }
             },
             {
               loader: 'postcss-loader',
